@@ -6,6 +6,7 @@ import DataAnalyst from './pages/DataAnalyst'
 import AuthPRD from './pages/AuthPRD'
 import CodeStats from './pages/CodeStats'
 import DevBestPractices from './pages/DevBestPractices'
+import VibeCodingGuide from './pages/VibeCodingGuide'
 import SearchOverlay from './components/SearchOverlay'
 import BackToTop from './components/BackToTop'
 
@@ -26,6 +27,7 @@ const SECURITY_TOPICS = [
   { id: 'p9', title: 'Success Criteria', icon: '🏆', tag: 'Auth PRD' },
   { id: 'stats', title: 'Code Stats', icon: '📊', tag: 'Documentation' },
   { id: 'best', title: 'Before You Build', icon: '⚠️', tag: 'Best Practices' },
+  { id: 'vibe', title: 'Vibe Coding Guide', icon: '🤖', tag: 'Vibe Coding' },
 ]
 
 function Nav({ currentSection, onNavigate, isDark, toggleTheme }) {
@@ -73,6 +75,10 @@ function Nav({ currentSection, onNavigate, isDark, toggleTheme }) {
           <button className={`nav-tab ${currentSection === 'bestpractices' ? 'active' : ''}`} onClick={() => onNavigate('bestpractices')}>
             <span className="tab-dot" style={{ background: 'var(--red)' }} />
             Best Practices
+          </button>
+          <button className={`nav-tab ${currentSection === 'vibe' ? 'active' : ''}`} onClick={() => onNavigate('vibe')}>
+            <span className="tab-dot" style={{ background: 'var(--purple)' }} />
+            Vibe Coding
           </button>
         </div>
 
@@ -153,6 +159,9 @@ function Nav({ currentSection, onNavigate, isDark, toggleTheme }) {
           <button className="sb-item" onClick={() => { onNavigate('bestpractices'); setSidebarOpen(false) }}>
             <span className="sb-ico">⚠️</span>Before You Build
           </button>
+          <button className="sb-item" onClick={() => { onNavigate('vibe'); setSidebarOpen(false) }}>
+            <span className="sb-ico">🤖</span>Vibe Coding
+          </button>
         </div>
       </aside>
     </>
@@ -232,6 +241,7 @@ export default function App() {
           {currentSection === 'prd' && <AuthPRD />}
           {currentSection === 'stats' && <CodeStats />}
           {currentSection === 'bestpractices' && <DevBestPractices />}
+          {currentSection === 'vibe' && <VibeCodingGuide />}
         </main>
       </div>
 
